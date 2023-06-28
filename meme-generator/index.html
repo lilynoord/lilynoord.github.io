@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='app.js' type="module"></script>
+</head>
+
+<body>
+    <section id="nav-bar">
+        <nav role="navigation">
+            <a href="./index.html">Generator</a>
+            <a href="./memelist.html">My Memes</a>
+        </nav>
+    </section>
+
+    <section id="generator">
+        <div class="viewport">
+            <div class="top-text meme-text">
+                <form id="top-text-form" class="meme-text-form"><input name="top-text-input" class="meme-text-form"
+                        type="text">
+                </form>
+            </div>
+            <img id="editing-meme" class="meme-view" src="https://a.pinatafarm.com/500x500/c501ff63ac/advice-dog.jpg">
+            <div class="bottom-text meme-text">
+                <form title="bottom-text-form" class="meme-text-form"><input name="bottom-text-input"
+                        class="meme-text-form" type="text">
+                </form>
+            </div>
+
+        </div>
+        <div id="actions" class="viewport">
+            <form id="img-src-form" name="img-src-form">Img link: <input type="text" name="img-src-input"> <input
+                    type="submit" name="img-src-submit" value="Refresh Template">
+            </form>
+            <form id="make-meme-form" name="make-meme-form">
+                <input type="submit" name="make-meme-submit" value="#Meme It!">
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
