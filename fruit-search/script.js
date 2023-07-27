@@ -1,28 +1,42 @@
-const input = document.querySelector('#fruit');
-const suggestions = document.querySelector('.suggestions ul');
-
-const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
+import { fruit } from "./fruit-index.js";
+const input = document.querySelector("#fruit");
+const suggestions = document.querySelector(".suggestions ul");
 
 function search(str) {
-	let results = [];
-
-	// TODO
+	let results = fruit.filter((arr) =>
+		arr.toLowerCase().includes(str.toLowerCase())
+	);
 
 	return results;
 }
 
 function searchHandler(e) {
-	// TODO
+	showSuggestions(search(input.value), input.value);
 }
 
 function showSuggestions(results, inputVal) {
-
-	// TODO
+	const currentList = document
+		.querySelectorAll("li")
+		.forEach((a) => a.remove());
+	results.forEach((fruity) => {
+		const newItem = document.createElement("li");
+		newItem.name = fruity;
+		newItem.innerText = fruity;
+		suggestions.append(newItem);
+	});
+	if (input.value === "") {
+		const currentList = document
+			.querySelectorAll("li")
+			.forEach((a) => a.remove());
+	}
 }
 
 function useSuggestion(e) {
-	// TODO
+	input.value = e.target.innerText;
+	const currentList = document
+		.querySelectorAll("li")
+		.forEach((a) => a.remove());
 }
 
-input.addEventListener('keyup', searchHandler);
-suggestions.addEventListener('click', useSuggestion);
+input.addEventListener("keyup", searchHandler);
+suggestions.addEventListener("click", useSuggestion);
